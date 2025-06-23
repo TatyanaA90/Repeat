@@ -1,6 +1,21 @@
 def first_uncommon(matrix, n):
     # Your implementation here!
-    pass
+    counter = {}
+
+    for row in matrix:
+        for character in row:
+            if character in counter:
+                counter[character] += 1
+            else:
+                counter[character] = 1
+
+    for row in matrix:
+        for character in row:
+            if  counter[character] < n:
+                return  character
+            
+    return None
+
 
 matrix_1 = (
     ('u','e','r','e', ' ', 'e'),
